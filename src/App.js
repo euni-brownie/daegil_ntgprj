@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
-
 import ReadContent from './components/ReadContent.js'
 import CreateContent from './components/CreateContent.js'
 import UpdateContent from './components/UpdateContent.js'
@@ -19,7 +18,7 @@ class App extends Component{
     super(props);
     this.max_content_id = 3; //ui에 영향을 줄 이유가 없는 변수이므로 state값이 아닌 변수로!
     this.state ={
-      mode : "login",
+      mode : "guest",
       subject : {title : 'WEB', sub : 'World wide web!'},
       welcome : {title : 'welcome', desc : 'Hello,React!!!'},
       contents : [
