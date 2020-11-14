@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
-import Subject from './Subject.js'
+import Subject from './Subject.js';
+import SubjectProfile from './SubjectProfile.js';
+import Profile from './Profile.js';
 import Button from './Button.js'
+
 
 class FullPage extends Component{
     render(){
@@ -103,11 +106,11 @@ class FullPage extends Component{
             </div>
   
             <div className="section">
-            <Subject 
+            <SubjectProfile 
               title ="3겹줄 기도" 
-              sub="오늘은 A님 B님 C님을 위해서 기도해요">
-              </Subject>
-              </div>
+              sub="오늘은 이분들을 위해 기도 하는건 어때요?">
+              </SubjectProfile>
+            </div>
   
               <div className="section">
             <Subject 

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
 
+/******************************
+*
+* subject
+*
+******************************/
+
 header, .title{
 text-align: center;
 font-size: 1.5em;
@@ -11,6 +17,12 @@ color: #f0f0f0;
 body{
     text-align: center;
 }
+
+/******************************
+*
+* header-top
+*
+******************************/
 
 .clearfix:before,
 .clearfix:after {
@@ -48,6 +60,11 @@ body{
   padding: 0 0 10px;
 }
 
+/******************************
+*
+* button
+*
+******************************/
 
 .btn {
     width:200px;
@@ -67,6 +84,13 @@ body{
 .btn:hover {
 	box-shadow: #fc9a9c 0 80px 0px 2px inset;
 }
+
+
+/******************************
+*
+* section : 1 분 묵상
+*
+******************************/
 
   .video {
     width: 100%;
@@ -94,7 +118,11 @@ body{
     width: 100%;
     height: 100%;
   }
-
+/******************************
+*
+* section : 2 장 읽기
+*
+******************************/
   .txtbox
   { 
       width: 60%;
@@ -114,5 +142,39 @@ body{
       font-size: 0.8em;
       overflow: auto;
       margin-left: auto; margin-right: auto;
+
+}
+
+/******************************
+*
+* section : 3 겹줄 기도
+*
+******************************/
+.box {
+  width: 70px;
+  height: 70px; 
+  border-radius: 70%;
+  overflow: hidden;
+  background-color: rosybrown;
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-nickname{
+  text-align: center;
+  font-size: 0.5em;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #f0f0f0;
+}
+.profile-one{
+  display: inline-block;
+  padding : 20px;
+}
+
+.horizontal-box{
+  width: 30%;
+  height: 200px;
 
 }
