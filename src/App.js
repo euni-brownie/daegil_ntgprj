@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import ReactFullpage from '@fullpage/react-fullpage';
-import ReadContent from './components/ReadContent.js'
-import CreateContent from './components/CreateContent.js'
-import UpdateContent from './components/UpdateContent.js'
-import LoginHeader from './components/LoginHeader.js'
-import Subject from './components/Subject.js'
-import Button from './components/Button.js'
-import FullPage from './components/FullPage.js'
-import Controll from './components/Controll.js'
+import ReadContent from './components/ReadContent.js';
+import CreateContent from './components/CreateContent.js';
+import UpdateContent from './components/UpdateContent.js';
+import LoginHeader from './components/header/LoginHeader.js';
+import FullPage from './pages/FullPage.js';
 import './css/App.css';
 
 

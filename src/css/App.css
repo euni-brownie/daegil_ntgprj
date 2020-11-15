@@ -66,7 +66,7 @@ body{
 *
 ******************************/
 
-.btn {
+.btn-confirm {
     width:200px;
     background-color: #f8585b;
     border: none;
@@ -81,10 +81,24 @@ body{
   }
 
 
-.btn:hover {
-	box-shadow: #fc9a9c 0 80px 0px 2px inset;
+.btn-confirm:hover {
+  box-shadow: #fc9a9c 0 80px 0px 2px inset;
+  color: #f8585b;
 }
 
+.btn-enabled {
+  width:200px;
+  background-color: lightgray;
+  border: none;
+  color: #6f6f6f;
+  padding: 15px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px;
+  cursor: pointer;
+}
 
 /******************************
 *
@@ -124,25 +138,28 @@ body{
 *
 ******************************/
   .txtbox
-  { 
-      width: 60%;
-      height: 80%;
+  {   width: 70%;
       text-align: justify;
       font-family: 'Nanum Gothic', sans-serif;
       border-style: solid; 
-      border-width: 2px; 
+      border-width: 1px; 
       padding: 12px; 
-      word-break: break-all;
+      word-break: break-all;  
       border-color: LightGray;
       border-radius: 8px;
-      column-count: 2;
-      line-height: 150%;
-      column-gap: 32px;
-      color: LightGray;
-      font-size: 0.8em;
-      overflow: auto;
+      line-height: 300%;
       margin-left: auto; margin-right: auto;
-
+}
+.txtcontent
+{   
+    height: 500px; 
+    color: LightGray;
+    font-size: 1.2em;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    margin: 0 auto; 
+    padding: 0px 10px 20px;
+    
 }
 
 /******************************

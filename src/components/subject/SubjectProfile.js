@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Profile from './Profile.js';
+import Profile from './../profile/Profile.js';
 
 class SubjectProfile extends Component{
 

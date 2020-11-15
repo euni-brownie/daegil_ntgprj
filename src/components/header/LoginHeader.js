@@ -3,8 +3,6 @@ import KaKaoLogin from 'react-kakao-login';
 import { IconContext } from "react-icons";
 import { BiLogIn } from 'react-icons/bi';
 import styled from 'styled-components';
-import Button from './Button.js'
-import "./../css/App.css"
 
 
 class LoginHeader extends Component{

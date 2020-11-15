@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ProfileImg from "./ProfileImg.js";
-import "./../css/App.css"
 
 class Profile extends Component{
 
