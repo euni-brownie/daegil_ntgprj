@@ -23,9 +23,9 @@ class FullPage extends Component{
 
   loadData = async() => {
     const res = await axios.get('/api/get/usersCount');
-    console.log(`tatal users : ${res.data[0]}`);
+    console.log(`total users : ${res.data[0].count}`);
     this.setState({
-      data : res,
+      data : res.data,
       mode : 'login'
     });
 

@@ -7,7 +7,7 @@ router.get('/', (req,res)=> res.json({data:'this is index.'}));
 
 
 router.get('/get/usersCount', (req,res)=>{
-    db.query(`SELECT COUNT(*) FROM USER_INFO;`, (err, data)=>{
+    db.query(`SELECT COUNT(*) as count FROM USER_INFO;`, (err, data)=>{
         if(!err){
             console.log(err, data);
             res.send(data);
