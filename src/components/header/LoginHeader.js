@@ -68,7 +68,7 @@ class LoginHeader extends Component{
     render(){
       return(
         <div className="header-top clearfix" >
-          <h1 class="l-right username">{this.getMode()}</h1>
+          <h1 className="l-right username">{this.getMode()}</h1>
         </div>
       );
     }

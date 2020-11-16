@@ -141,23 +141,15 @@ body{
   {   width: 70%;
       text-align: justify;
       font-family: 'Nanum Gothic', sans-serif;
-      border-style: solid; 
       border-width: 1px; 
       padding: 12px; 
-      word-break: break-all;  
-      border-color: LightGray;
-      border-radius: 8px;
       line-height: 300%;
       margin-left: auto; margin-right: auto;
 }
 .txtcontent
 {   
-    height: 500px; 
     color: LightGray;
     font-size: 1.2em;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
-    margin: 0 auto; 
     padding: 0px 10px 20px;
     
 }

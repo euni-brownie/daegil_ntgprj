@@ -1,10 +1,40 @@
 import React, { Component } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
+import axios from 'axios';
 import Subject from '../components/subject/Subject.js';
 import SubjectProfile from '../components/subject/SubjectProfile.js';
 import Button from '../components/button/Button.js';
 
 class FullPage extends Component{
+
+
+  constructor(props){
+    super(props);
+    this.state={
+      data : null,
+      nickname : 'guest',
+      mode : 'guest'
+    }
+  }
+
+  componentDidMount() {
+    this.loadData();
+  }
+
+  loadData = async() => {
+    const res = await axios.get('/api/get/usersCount');
+    console.log(`tatal users : ${res.data[0]}`);
+    this.setState({
+      data : res,
+      mode : 'login'
+    });
+
+  }
+
+  
+
+
+
     render(){
       return(
         <ReactFullpage
