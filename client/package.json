@@ -21,11 +21,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start" : "node server.js",
-    "dev": "npm-run-all --parallel dev:**",
-    "dev:client": "cd client && react-scripts start",
-    "dev:server": "node ./server.js",
-    "build": "cd client && react-scripts build",
+    "start": "npm-run-all --parallel start:**",
+    "start:client": "cd client && react-scripts start",
+    "start:server": "node ./server/server.js",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

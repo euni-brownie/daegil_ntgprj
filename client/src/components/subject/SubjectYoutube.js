@@ -2,6 +2,17 @@ import React, {Component} from 'react';
 
 class SubjectYoutube extends Component{
 
+  // load = async() =>{
+
+    
+  //   try{
+  //     const res = await axios.get('/get/videoURL')
+  //     if(res.data[0]!=null) 
+  //     else 
+  //   }catch(e){
+  //   }
+  // }
+
     render(){
       return(
         <div>
