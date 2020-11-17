@@ -80,7 +80,7 @@ class SubjectProfile extends Component{
 
   hrefState = (num)=>{
     return (this.state.users==null)? 
-      "http://k.kakaocdn.net/dn/bv7Av5/btqHYIxg71f/iAFFPt5YaBDH6FhoLalAg1/img_110x110.jpg" : this.state.users[num].user_image_url;
+      "./../../css/images/bird.jpg" : this.state.users[num].user_image_url;
   }
   nickNameState = (num)=>{
     return (this.state.users==null)? 

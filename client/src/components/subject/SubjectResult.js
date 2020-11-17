@@ -17,7 +17,6 @@ class SubjectResult extends Component{
       return `${this.props.n_day}일차 완료!!`
     }else{
       return `총 ${this.props.total_count}회 성공!!`;
-
     }
   }
 

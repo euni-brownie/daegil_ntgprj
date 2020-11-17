@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Button from './../button/Button.js';
 import KaKaoLogin from 'react-kakao-login';
 import { IconContext } from "react-icons";
 import { BiLogIn } from 'react-icons/bi';
@@ -13,7 +14,8 @@ class LoginHeader extends Component{
     this.state={
       data : 'kakao',
       mode : this.props.mode,
-      total_count : 0
+      total_count : 0,
+      checked : false
     }
   }
   responseKaKao = async(res) =>{
@@ -31,13 +33,15 @@ class LoginHeader extends Component{
       const response = await axios.post('/api/get/existUser', {user_id : res.profile.id})
 
       if (response.data[0].count > 0) {
-        alert('로그인되었습니다')
         let count = await this.getTotalCount()
+        let _checked = await this.getCheckedToday()
+        await this.updateCheckinInfo()
           this.setState({
             mode : 'login',
-            total_count : count
+            total_count : count,
+            checked : _checked
           });
-        this.props.login(this.state.data.profile ,this.state.mode, this.state.total_count)
+        this.props.login(this.state.data.profile ,this.state.mode, this.state.total_count, this.state.checked)
       } else {
         try {
           const signup_response =await axios.post('/api/insert/user', 
@@ -52,11 +56,13 @@ class LoginHeader extends Component{
           if(signup_response.status===200){
 
               let count = await this.getTotalCount()
+              let _checked = await this.getCheckedToday()
               this.setState({
                 mode : 'login',
-                total_count : count
+                total_count : count,
+                checked : _checked
               });
-              this.props.login(this.state.data.profile, this.state.mode, this.state.total_count)
+              this.props.login(this.state.data.profile, this.state.mode, this.state.total_count, this.state.checked)
           }
         }
         catch (err) {
@@ -90,6 +96,33 @@ class LoginHeader extends Component{
       return 0;
     }
   }
+  getCheckedToday = async() =>{
+    
+    try{
+      const res = await axios.post('/api/get/checkedTodayById',{user_id : this.state.data.profile.id})
+      if(res.data[0]!=null){
+         return (res.data[0].count!=0)? true : false;
+      }
+      else { return false;}
+    }catch(e)
+    {
+      alert(`ERROR! [${e.name}] : ${e.message}`)
+      return false;
+    }
+  }
+
+  updateCheckinInfo = async() =>{
+    
+    try{
+      const res = await axios.post('/api/update/checkin',{user_id : `'${this.state.data.profile.id}'`})
+      if(res.data[0]!=null){
+      }
+      else {}
+    }catch(e)
+    {
+      alert(`ERROR! [${e.name}] : ${e.message}`)
+    }
+  }
 
   getMode = () =>{
 
@@ -109,17 +142,25 @@ class LoginHeader extends Component{
       return _info;
     }  
     else if(this.state.mode==='login'){
-       _info= <span className='one-line'>
-                  {this.state.data.profile.properties.nickname}님 
-                  <IconContext.Provider 
-                    value={{ color: "lightgray",
-                             className: "global-class-name" ,
-                             size:"1.5em",}}
-                  ><BiLogIn/>
-              </IconContext.Provider></span>;
+       _info= <span className='one-line' >
+                  {this.state.data.profile.properties.nickname}님
+                    <span onClick={()=>{this.logout()}}> (로그아웃) </span>
+
+                  </span>;
       return _info;
     }
 
+  }
+
+  logout = () =>{
+    console.log('로그아웃');
+    sessionStorage.clear();
+    this.setState({
+      mode : 'guest',
+      total_count : 0,
+      checked : false
+    });
+    this.props.login(null, 'guest', 0, false)
   }
     render(){
       return(

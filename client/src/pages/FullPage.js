@@ -42,6 +42,9 @@ class FullPage extends Component{
     if(prevProps.total_count !== this.props.total_count) {
       this.setState({total_count: this.props.total_count});
     }
+    if(prevProps.checked !== this.props.checked) {
+      this.setState({checked: this.props.checked});
+    }
 
   }
 
@@ -57,7 +60,24 @@ class FullPage extends Component{
     });
   }
 
+  checkToday = async() => {
 
+    try{
+      const res = await axios.post('/api/insert/today',{
+        user_id : this.state.user.id, 
+        user_nickname : `'${this.state.user.properties.nickname}'`})
+
+      if(res.data[0]!=null){
+        return true;
+      }
+      else { return false;}
+    }catch(e)
+    {
+      alert(`ERROR! [${e.name}] : ${e.message}`)
+      return false;
+    }
+
+  }
 
   buttonState = ()=>{
     return (this.state.mode=="guest")? "btn-enabled" : "btn-confirm"
@@ -76,6 +96,31 @@ class FullPage extends Component{
     return (this.state.checked)? `오늘 완료 축하합니다^^` :`${this.state.n_day}일차 시작`
   }
 
+  printCompleteButton=()=>{
+    if(this.state.checked) return '축하합니다!';
+    else return '오늘 도전 완료하기';
+  }
+
+  completeButtonAction = () =>{
+    if(!this.state.logined){
+
+    }else{
+      if(this.state.checked){
+        console.log('checked')
+      }else{
+        let successed = this.checkToday();
+
+        if(successed){
+          console.log('successed!');
+          this.setState({
+            checked : true,
+            total_count : this.state.total_count+1
+          });
+        }
+        console.log(this.state.checked);
+      }
+    }
+  }
 
 
     render(){
@@ -140,8 +185,11 @@ class FullPage extends Component{
                   <SubjectMain
                     title ="4랑실천 happy box" 
                     sub="기한 20/12/11 까지" />
-                  <Button classname={this.buttonState()} title="오늘도전 완료하기" 
-                        onClick={() => (this.state.mode=="guest")? null : fullpageApi.moveSectionDown()}/>
+                  <Button classname={this.buttonState()} title={this.printCompleteButton()} 
+                        onClick={()=>{
+                          this.completeButtonAction();
+                          if(!this.state.checked) fullpageApi.moveSectionDown()
+                          else; }}/>
                 </div>
 
                 <div className="section">

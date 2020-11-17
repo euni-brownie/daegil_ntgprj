@@ -124,7 +124,7 @@ router.post('/insert/user', (req,res)=>{
 
 router.post('/insert/today', (req,res)=>{
     db.query(`INSERT INTO USER_DATA (user_id, checked_date, user_nickname) 
-                VALUES (${req.body.user_id}, CURDATE(), ${req.body.user_nickname})`, (err, data)=>{
+                VALUES ('${req.body.user_id}', CURDATE(), '${req.body.user_nickname}')`, (err, data)=>{
         if(!err){
             console.log(err, data);
             res.send(data);

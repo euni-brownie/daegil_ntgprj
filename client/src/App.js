@@ -14,15 +14,17 @@ class App extends Component{
       user : null,
       mode : "guest",
       total_count : 0,
+      checked : false
     }
 
   }
 
-  login = (_data,_mode,_count) => {
+  login = (_data,_mode,_count, _checked) => {
     this.setState({
       user : _data,
       mode : _mode,
-      total_count : _count
+      total_count : _count,
+      checked : _checked
     });
     
   };
@@ -31,7 +33,7 @@ class App extends Component{
     return(
       <div>
       <LoginHeader login={this.login} mode={this.state.mode}></LoginHeader>
-      <FullPage user={this.state.user} mode={this.state.mode} total_count={this.state.total_count}></FullPage>
+      <FullPage user={this.state.user} mode={this.state.mode} total_count={this.state.total_count} checked ={this.state.checked}></FullPage>
       </div>
     );
   }
