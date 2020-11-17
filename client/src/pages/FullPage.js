@@ -92,7 +92,6 @@ class FullPage extends Component{
     return printDay
   }
   printDays = () =>{
-    //checked면 오늘은 완료했어요! 출력해주기~
     return (this.state.checked)? `오늘 완료 축하합니다^^` :`${this.state.n_day}일차 시작`
   }
 
@@ -130,7 +129,7 @@ class FullPage extends Component{
           licenseKey = {'OPEN-SOURCE-GPLV3-LICENSE'}
           scrollingSpeed = {1000}
           sectionsColor={["#282c34", "#9baec8","#353848","#ff5f45", "#0798ec","#282c34"]}
-          navigation = {true}
+ //         navigation = {true}
           navigationPosition= 'right'
           // navigationTooltips={['시작','1','2','3','4','확인']}
           scrollOverflow= {true}
@@ -163,12 +162,14 @@ class FullPage extends Component{
                   <div className="slide">
                       <SubjectBible
                         title ="2분 성경읽기" 
-                        sub="성경 본문" />
+                        sub="성경 본문"
+                        n_day={this.state.n_day} />
                   </div>
                   <div className="slide">
                         <SubjectBibleQuiz
                           title ="2분 성경읽기" 
-                          sub="성경 퀴즈"/>
+                          sub="성경 퀴즈"
+                          n_day={this.state.n_day}/>
                   </div>
               </div>
     
