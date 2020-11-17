@@ -74,7 +74,7 @@ class FullPage extends Component{
           sectionsColor={["#282c34", "#9baec8","#353848","#ff5f45", "#0798ec","#282c34"]}
           navigation = {true}
           navigationPosition= 'right'
-          navigationTooltips={['시작','1','2','3','4','확인']}
+          // navigationTooltips={['시작','1','2','3','4','확인']}
           scrollOverflow= {true}
           normalScrollElements= {'.txtbox'}
   //        controlArrows= {false}
@@ -84,9 +84,12 @@ class FullPage extends Component{
             <ReactFullpage.Wrapper>
               <div className="section">
                 <SubjectMain
-                  title ="주님과 거리 좁히기 1234 Challenge!"
-                  sub="하나님께 가까이 함이 내게 복이라 (시73:28)"
-                  sub2="11.09 ~ 12.12까지 (30일간, 월-토 주일 제외)"            
+                  title="주님과 거리 좁히기"
+                  title2 = "1234 Challenge!"
+                  sub="하나님께 가까이 함이 내게 복이라"
+                  sub2 = "- 시73:28 -"
+                  sub3="11.09 ~ 12.12까지"
+                  sub4="(30일간, 월-토 주일 제외)"            
                   />
                 <Button classname='btn-confirm' title={this.calDays()}
                         onClick={ () => (this.state.mode=="guest")? fullpageApi.moveSectionDown() : fullpageApi.moveSectionDown()} />
@@ -114,8 +117,12 @@ class FullPage extends Component{
               <div className="section">
                   <SubjectProfile 
                     title ="3겹줄 기도" 
-                    sub="한 사람이면 패하겠거니와 두 사람이면 맞설 수 있나니 세 겹 줄은 쉽게 끊어지지 아니하느니라(전4:12)"
-                    sub2="오늘은 이분들을 위해 기도 하는건 어때요?" />
+                    sub="한 사람이면 패하겠거니와"
+                    sub2="두 사람이면 맞설 수 있나니"
+                    sub3="세 겹 줄은 쉽게 끊어지지 아니하느니라 "
+                    sub4= "- 전4:12 -"
+                    sub5="오늘은 이분들을 위해 기도 하는건 어때요?" 
+                    mode={this.state.mode} />
               </div>
     
                 <div className="section">

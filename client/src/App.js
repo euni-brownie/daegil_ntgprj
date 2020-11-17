@@ -14,6 +14,7 @@ class App extends Component{
       user : null,
       mode : "guest",
     }
+
   }
 
   login = (_data,_mode) => {

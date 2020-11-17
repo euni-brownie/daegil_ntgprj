@@ -169,17 +169,38 @@ body{
   margin-top: -38px;
 }
 
+
 .fp-controlArrow.fp-prev {
   left: 5px;
   width: 0;
   border-width: 38.5px 34px 38.5px 0;
   border-color: transparent #fff transparent transparent;
+  background: url("images/left.png") no-repeat;
 }
 .fp-controlArrow.fp-next {
   right: 5px;
   border-width: 38.5px 0 38.5px 34px;
   border-color: transparent transparent transparent #fff;
+  background: url("images/right.png") no-repeat;
 }
+/* .fp-controlArrow {
+  position: absolute;
+  width: 128px; This can be added here so you don't have to set a width and height 2 times for each arrow, this will create one width for both arrows
+  height: 128px; /This does the same as above 
+  margin-top:-64px;  This value must always be half of the height - This does the same as above 
+  z-index: 4;
+  top: 50%;
+  cursor: pointer;
+}
+.fp-controlArrow.fp-prev {
+  left:0;
+  background: url("images/left.png") no-repeat;
+}
+.fp-controlArrow.fp-next {
+  right:0;
+  background: url("images/right.png") no-repeat;
+} */
+
 
 /******************************
 *

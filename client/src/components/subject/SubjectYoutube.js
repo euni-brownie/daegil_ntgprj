@@ -5,7 +5,7 @@ class SubjectYoutube extends Component{
   constructor(props){
     super(props);
     this.state={
-      url : 'https://www.youtube.com/watch?v=zYoP9Lz2mO4'
+      url : 'https://www.youtube.com/embed/zYoP9Lz2mO4'
     }
   }
   componentDidMount() {
@@ -18,7 +18,7 @@ class SubjectYoutube extends Component{
       const res = await axios.get('/api/get/videoURL')
       if(res.data[0]!=null){
         this.setState({
-          url : res.data[0].url
+          url : 'https://www.youtube.com/embed/'+res.data[0].url
         })
       }
       else {}
@@ -35,8 +35,8 @@ class SubjectYoutube extends Component{
                   <h1>{this.props.title}</h1>
                  <br/>
           </header>
-          <div class="video">
-            <div class="video-container">
+          <div className="video">
+            <div className="video-container">
               <iframe title="youtube" width="100%" height="100%" 
                       src={this.state.url}
                       frameBorder="0" 
