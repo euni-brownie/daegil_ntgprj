@@ -13,14 +13,16 @@ class App extends Component{
     this.state ={
       user : null,
       mode : "guest",
+      total_count : 0,
     }
 
   }
 
-  login = (_data,_mode) => {
+  login = (_data,_mode,_count) => {
     this.setState({
       user : _data,
-      mode : _mode
+      mode : _mode,
+      total_count : _count
     });
     
   };
@@ -29,7 +31,7 @@ class App extends Component{
     return(
       <div>
       <LoginHeader login={this.login} mode={this.state.mode}></LoginHeader>
-      <FullPage user={this.state.user} mode={this.state.mode}></FullPage>
+      <FullPage user={this.state.user} mode={this.state.mode} total_count={this.state.total_count}></FullPage>
       </div>
     );
   }

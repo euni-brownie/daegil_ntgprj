@@ -24,7 +24,7 @@ class SubjectYoutube extends Component{
       else {}
     }catch(e)
     {
-      alert(e);
+      alert(`ERROR! [${e.name}] : ${e.message}`)
     }
   }
 

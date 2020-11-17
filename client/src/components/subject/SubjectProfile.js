@@ -93,9 +93,7 @@ class SubjectProfile extends Component{
                 <h1>{this.props.title}</h1><br/>
                 <p className='sub'>{this.props.sub}</p>
                 <p className='sub2'>{this.props.sub2}</p>
-                <p className='sub3'>{this.props.sub3}</p>
-                <p className='sub4'>{this.props.sub3}</p>
-                <p className='sub5'>{this.props.sub4}</p><br/>
+                <p className='sub3'>{this.props.sub3}</p><br/>
                <span className="horizontal-box">
                   <Profile href={this.hrefState(0)} nickname={this.nickNameState(0)}></Profile>
                   <Profile href={this.hrefState(1)} nickname={this.nickNameState(1)}></Profile>

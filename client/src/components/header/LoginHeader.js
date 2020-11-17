@@ -12,7 +12,8 @@ class LoginHeader extends Component{
     super(props);
     this.state={
       data : 'kakao',
-      mode : this.props.mode
+      mode : this.props.mode,
+      total_count : 0
     }
   }
   responseKaKao = async(res) =>{
@@ -31,10 +32,12 @@ class LoginHeader extends Component{
 
       if (response.data[0].count > 0) {
         alert('로그인되었습니다')
-        this.setState({
-          mode : 'login'
-        });
-        this.props.login(this.state.data.profile ,this.state.mode)
+        let count = await this.getTotalCount()
+          this.setState({
+            mode : 'login',
+            total_count : count
+          });
+        this.props.login(this.state.data.profile ,this.state.mode, this.state.total_count)
       } else {
         try {
           const signup_response =await axios.post('/api/insert/user', 
@@ -48,10 +51,12 @@ class LoginHeader extends Component{
                                                       
           if(signup_response.status===200){
 
+              let count = await this.getTotalCount()
               this.setState({
-                mode : 'login'
+                mode : 'login',
+                total_count : count
               });
-              this.props.login(this.state.data.profile, this.state.mode)
+              this.props.login(this.state.data.profile, this.state.mode, this.state.total_count)
           }
         }
         catch (err) {
@@ -71,8 +76,22 @@ class LoginHeader extends Component{
     alert(err);
   }
 
+  getTotalCount = async() =>{
+    
+    try{
+      const res = await axios.post('/api/get/totalCheckedCount',{user_id : this.state.data.profile.id})
+      if(res.data[0]!=null){
+        return res.data[0].count;
+      }
+      else { return 0;}
+    }catch(e)
+    {
+      alert(`ERROR! [${e.name}] : ${e.message}`)
+      return 0;
+    }
+  }
 
-  getMode(){
+  getMode = () =>{
 
     var _info = null; 
     if(this.state.mode==='guest'){

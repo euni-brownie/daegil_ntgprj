@@ -21,7 +21,8 @@ class FullPage extends Component{
       mode : this.props.mode,
       n_day : null,
       logined : false,
-      checked : false
+      checked : false,
+      total_count : 0,
     }
   }
 
@@ -34,7 +35,12 @@ class FullPage extends Component{
       this.setState({user: this.props.user});
     }
     if(prevProps.mode !== this.props.mode) {
-      this.setState({mode: this.props.mode});
+      let _logined = false;
+      _logined = (this.props.mode==='guest')? false : true;
+      this.setState({mode: this.props.mode, logined:_logined});
+    }
+    if(prevProps.total_count !== this.props.total_count) {
+      this.setState({total_count: this.props.total_count});
     }
 
   }
@@ -42,15 +48,18 @@ class FullPage extends Component{
   loadData = async() => {
     
     if(this.state.user!=null) {
-  }
+    }
+    let calday = this.calDays()
     this.setState({
       user : this.props.user,
-      mode : this.props.mode
+      mode : this.props.mode,
+      n_day : calday
     });
   }
 
+
+
   buttonState = ()=>{
-    if(this.state.user!= null) console.log(`button State : ${this.state.user.id} ${this.state.mode}`)
     return (this.state.mode=="guest")? "btn-enabled" : "btn-confirm"
   }
 
@@ -60,9 +69,12 @@ class FullPage extends Component{
     let printDay = diffDay;
     if(diffDay%7==0) printDay = diffDay - Math.floor(diffDay/7) -1
     else  printDay = diffDay - Math.floor(diffDay/7)  
+    return printDay
+  }
+  printDays = () =>{
     //checked면 오늘은 완료했어요! 출력해주기~
-    return `${printDay}일차 시작!`
-   }
+    return (this.state.checked)? `오늘 완료 축하합니다^^` :`${this.state.n_day}일차 시작`
+  }
 
 
 
@@ -92,7 +104,7 @@ class FullPage extends Component{
                   sub3="11.09 ~ 12.12까지"
                   sub4="(30일간, 월-토 주일 제외)"            
                   />
-                <Button classname='btn-confirm' title={this.calDays()}
+                <Button classname='btn-confirm' title={this.printDays()}
                         onClick={ () => (this.state.mode=="guest")? fullpageApi.moveSectionDown() : fullpageApi.moveSectionDown()} />
               </div>
     
@@ -116,14 +128,12 @@ class FullPage extends Component{
               </div>
     
               <div className="section">
-                  <SubjectProfile 
-                    title ="3겹줄 기도" 
-                    sub="한 사람이면 패하겠거니와"
-                    sub2="두 사람이면 맞설 수 있나니"
-                    sub3="세 겹 줄은 쉽게 끊어지지 아니하느니라 "
-                    sub4= "- 전4:12 -"
-                    sub5="오늘은 이분들을 위해 기도 하는건 어때요?" 
-                    mode={this.state.mode} />
+              <SubjectProfile 
+                title ="3겹줄 기도" 
+                sub="한 사람이면 패하겠거니와 두 사람이면 맞설 수 있나니 세 겹 줄은 쉽게 끊어지지 아니하느니라"
+                sub2="- 전4:12 -"
+                sub3="오늘은 이분들을 위해 기도 하는건 어때요?" 
+                />
               </div>
     
                 <div className="section">
@@ -136,9 +146,11 @@ class FullPage extends Component{
 
                 <div className="section">
                   <SubjectResult
-                    title ="15 회 성공!!" 
                     sub=""
                     user={this.state.user}
+                    total_count ={this.state.total_count}
+                    logined={this.state.logined}
+                    n_day={this.state.n_day}
                      />
                 </div>
 
