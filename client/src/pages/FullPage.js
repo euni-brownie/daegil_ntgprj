@@ -35,9 +35,7 @@ class FullPage extends Component{
     if(prevProps.mode !== this.props.mode) {
       this.setState({mode: this.props.mode});
     }
-    if(this.state.user!=null && this.state.mode!=='guest'){
-      this.setState({logined : true})
-    }
+
   }
 
   loadData = async() => {
@@ -90,14 +88,13 @@ class FullPage extends Component{
                   sub="하나님께 가까이 함이 내게 복이라 (시73:28)"
                   sub2="11.09 ~ 12.12까지 (30일간, 월-토 주일 제외)"            
                   />
-                <Button classname='btn-enabled' title={this.calDays()}
-                        onClick={() => () => (this.state.mode=="guest")? null : fullpageApi.moveSectionDown()} />
+                <Button classname='btn-confirm' title={this.calDays()}
+                        onClick={ () => (this.state.mode=="guest")? fullpageApi.moveSectionDown() : fullpageApi.moveSectionDown()} />
               </div>
     
               <div className="section">
                 <SubjectYoutube 
                   title ="1분 말씀묵상" 
-                  url="https://www.youtube.com/embed/CDFE4u4RQIE?controls=0"
                   /> 
               </div>
     

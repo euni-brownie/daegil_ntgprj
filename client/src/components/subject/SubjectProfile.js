@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import Profile from './../profile/Profile.js';
 
 class SubjectProfile extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      logined : false,
+      mode : this.props.mode
+    }
+  }
 
     render(){
       return(
