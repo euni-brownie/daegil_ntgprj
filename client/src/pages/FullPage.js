@@ -8,6 +8,7 @@ import SubjectYoutube from '../components/subject/SubjectYoutube.js';
 import SubjectBible from '../components/subject/SubjectBible.js';
 import SubjectBibleQuiz from '../components/subject/SubjectBibleQuiz.js';
 import SubjectProfile from '../components/subject/SubjectProfile.js';
+import SubjectResult from '../components/subject/SubjectResult.js';
 import Button from '../components/button/Button.js';
 
 class FullPage extends Component{
@@ -134,9 +135,11 @@ class FullPage extends Component{
                 </div>
 
                 <div className="section">
-                  <SubjectMain
+                  <SubjectResult
                     title ="15 회 성공!!" 
-                    sub="" />
+                    sub=""
+                    user={this.state.user}
+                     />
                 </div>
 
                 </ReactFullpage.Wrapper>
