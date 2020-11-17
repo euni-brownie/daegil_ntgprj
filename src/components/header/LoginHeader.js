@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import KaKaoLogin from 'react-kakao-login';
 import { IconContext } from "react-icons";
 import { BiLogIn } from 'react-icons/bi';
@@ -11,21 +12,59 @@ class LoginHeader extends Component{
     super(props);
     this.state={
       data : 'kakao',
-      nickname : 'guest',
       mode : this.props.mode
     }
   }
+  responseKaKao = async(res) =>{
 
-  responseKaKao = (res) =>{
-    console.log(res);
     this.setState({
       data : res,
-      nickname : res.profile.properties.nickname,
-      mode : 'login'
     })
-    this.getMode();
-    alert(JSON.stringify(this.state.data));
 
+    const k_user_id = this.state.data.profile.id
+    const k_user_nickname =this.state.data.profile.properties.nickname
+    const k_user_image_url = this.state.data.profile.properties.thumbnail_image
+    const k_access_token = this.state.data.response.access_token
+
+    try {
+      const response = await axios.post('/api/get/existUser', {user_id : res.profile.id})
+
+      if (response.data[0].count > 0) {
+        alert('로그인되었습니다')
+        this.setState({
+          mode : 'login'
+        });
+        this.props.login(this.state.data.profile ,this.state.mode)
+      } else {
+        try {
+          const signup_response =await axios.post('/api/insert/user', 
+                                                    {
+                                                      user_id : k_user_id,
+                                                      user_nickname : k_user_nickname,
+                                                      user_image_url : k_user_image_url,
+                                                      access_token : k_access_token
+                                                      })
+                           
+                                                      
+          if(signup_response.status===200){
+
+              this.setState({
+                mode : 'login'
+              });
+              this.props.login(this.state.data.profile, this.state.mode)
+          }
+        }
+        catch (err) {
+          sessionStorage.clear()
+          alert(err);
+        }
+      }
+    }
+    catch (err) {
+      sessionStorage.clear()
+      alert(err);
+    }
+    this.getMode();
   }
 
   responseFail = (err) => {
@@ -37,7 +76,6 @@ class LoginHeader extends Component{
 
     var _info = null; 
     if(this.state.mode==='guest'){
-      console.log("guest")
       _info= <KaKaoBtn
       //styled component 통해 style을 입혀 줄 예정 
                   jsKey={'8c41a3af5fba32fd8edcfe279d7351a0'}
@@ -52,9 +90,8 @@ class LoginHeader extends Component{
       return _info;
     }  
     else if(this.state.mode==='login'){
-      console.log("login")
        _info= <span className='one-line'>
-                  {this.state.nickname}님 
+                  {this.state.data.profile.properties.nickname}님 
                   <IconContext.Provider 
                     value={{ color: "lightgray",
                              className: "global-class-name" ,
