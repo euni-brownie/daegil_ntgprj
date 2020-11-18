@@ -65,7 +65,7 @@ class FullPage extends Component{
     try{
       const res = await axios.post('/api/insert/today',{
         user_id : this.state.user.id, 
-        user_nickname : `'${this.state.user.properties.nickname}'`})
+        user_nickname : this.state.user.properties.nickname})
 
       if(res.data[0]!=null){
         return true;
@@ -105,18 +105,14 @@ class FullPage extends Component{
 
     }else{
       if(this.state.checked){
-        console.log('checked')
       }else{
         let successed = this.checkToday();
-
         if(successed){
-          console.log('successed!');
           this.setState({
             checked : true,
             total_count : this.state.total_count+1
           });
         }
-        console.log(this.state.checked);
       }
     }
   }
@@ -133,6 +129,7 @@ class FullPage extends Component{
           navigationPosition= 'right'
           // navigationTooltips={['시작','1','2','3','4','확인']}
           scrollOverflow= {true}
+          slidesNavigation ={true}
           normalScrollElements= {'.txtbox'}
   //        controlArrows= {false}
           render={({ state, fullpageApi }) => {
@@ -161,13 +158,13 @@ class FullPage extends Component{
               <div className="section">
                   <div className="slide">
                       <SubjectBible
-                        title ="2분 성경읽기" 
+                        title ="2장 성경읽기" 
                         sub="성경 본문"
                         n_day={this.state.n_day} />
                   </div>
                   <div className="slide">
                         <SubjectBibleQuiz
-                          title ="2분 성경읽기" 
+                          title ="2장 성경읽기" 
                           sub="성경 퀴즈"
                           n_day={this.state.n_day}/>
                   </div>
@@ -185,7 +182,7 @@ class FullPage extends Component{
                 <div className="section">
                   <SubjectMain
                     title ="4랑실천 happy box" 
-                    sub="기한 20/12/11 까지" />
+                    sub="기한 20/12/11 까지 사랑의 선물박스를 함께 준비해볼까요?" />
                   <Button classname={this.buttonState()} title={this.printCompleteButton()} 
                         onClick={()=>{
                           this.completeButtonAction();

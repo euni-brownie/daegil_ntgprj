@@ -9,7 +9,7 @@ class SubjectBible extends Component{
       var today = moment()
       let diffDay = today.diff('2020-11-09','days')+1
       let printDay = diffDay;
-      if(diffDay%7==0) printDay = diffDay - Math.floor(diffDay/7) -1
+      if(diffDay%7===0) printDay = diffDay - Math.floor(diffDay/7) -1
       else  printDay = diffDay - Math.floor(diffDay/7)  
     
       let data = {bible_array};
@@ -24,16 +24,15 @@ class SubjectBible extends Component{
           <header>
                   <h1>{this.props.title}</h1>
                   {this.props.sub}<br/>
+
           </header>
-          <div className="txtbox">
             <div className="txtcontent">
-                    {
-                         _txt.split('\n').map( line => {
-                          return (<span>{line}<br/></span>);
-                        })
-                      }
-                </div>
-            </div>
+                          {
+                              _txt.split('\n').map( (line,idx) => {
+                                return (<span id={idx} key={idx}>{line}<br/></span>);
+                              })
+                            }
+                      </div>
         </div>
        
       );

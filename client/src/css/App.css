@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 /******************************
 *
@@ -6,12 +7,16 @@
 *
 ******************************/
 
-header, .title{
+header, .title, .title2{
 text-align: center;
-font-size: 1.5em;
+font-size: 1.1em;
 font-weight: 700;
 font-family: 'Nanum Gothic', sans-serif;
 color: #f0f0f0;
+}
+
+.title{
+	margin: 50px;
 }
 
 body{
@@ -54,10 +59,11 @@ body{
 }
 
 .username{
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-family: 'Nanum Gothic', sans-serif;
   text-decoration: underline;
   padding: 0 0 10px;
+  color: #353848; 
 }
 
 /******************************
@@ -112,7 +118,278 @@ body{
     margin: 30px auto;
     border-radius: 30px;
     background-color: #f0f0f0;
-    padding: 40px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 33px #999;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 50%;
+  }
+  
+  iframe {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+/******************************
+*
+* section : 2 장 읽기
+*
+******************************/
+  /* /* .txtbox */
+  /* {   width: 75%;
+      
+      font-family: 'Nanum Gothic', sans-serif;
+      border-width: 1px; 
+      padding: 12px; 
+      line-height: 300%;
+      margin-left: auto; margin-right: auto;
+} */
+
+/* .txtbox
+{   width: 75%;
+    text-align: justify;
+    font-family: 'Nanum Gothic', sans-serif;
+    border-width: 1px; 
+    padding: 12px; 
+    line-height: 300%;
+    margin-left: auto; margin-right: auto;
+} */
+.bible-line{
+  line-height : 200%;
+}
+
+.txtcontent
+{   text-align: justify;
+    color: LightGray;
+    font-size: 1.2em;
+    font-family: 'Nanum Gothic', sans-serif;
+    line-height: 300%;
+
+
+}
+html.fp-enabled .txtcontent {
+  margin-left: 12%; margin-right: 12%; margin-bottom: 20%;
+}
+
+.quiz{
+text-align : center;
+}
+
+.fp-controlArrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin-top: -38px;
+ 
+}
+
+
+.fp-controlArrow.fp-prev {
+  border :none;
+  left: 1px;
+  width: 0 px;
+  border-width: 38.5px 34px 38.5px 0;
+  border-color: transparent #fff transparent transparent;
+  background: url("images/left.png") no-repeat;
+}
+.fp-controlArrow.fp-next {
+  border :none;
+  right: 1px;
+  border-width: 38.5px 0 38.5px 34px;
+  border-color: transparent transparent transparent #fff;
+  background: url("images/right.png") no-repeat;
+}
+/* .fp-controlArrow {
+  position: absolute;
+  width: 128px; This can be added here so you don't have to set a width and height 2 times for each arrow, this will create one width for both arrows
+  height: 128px; /This does the same as above 
+  margin-top:-64px;  This value must always be half of the height - This does the same as above 
+  z-index: 4;
+  top: 50%;
+  cursor: pointer;
+}
+.fp-controlArrow.fp-prev {
+  left:0;
+  background: url("images/left.png") no-repeat;
+}
+.fp-controlArrow.fp-next {
+  right:0;
+  background: url("images/right.png") no-repeat;
+} */
+
+
+/******************************
+*
+* section : 3 겹줄 기도
+*
+******************************/
+.box {
+  width: 70px;
+  height: 70px; 
+  border-radius: 70%;
+  overflow: hidden;
+  background-color: rosybrown;
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-nickname{
+  text-align: center;
+  font-size: 0.5em;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #f0f0f0;
+}
+.profile-one{
+  display: inline-block;
+  padding : 20px;
+}
+
+.horizontal-box{
+  width: 30%;
+  height: 200px;
+
+}
+.sub-strong{
+  font-weight: bold;
+}
+
+.sub, .sub2, .sub3, .sub4, .sub5{
+  font-size: 0.9em;
+  margin: 5px 30px;
+}@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+/******************************
+*
+* subject
+*
+******************************/
+
+header, .title, .title2{
+text-align: center;
+font-size: 1.1em;
+font-weight: 700;
+font-family: 'Nanum Gothic', sans-serif;
+color: #f0f0f0;
+}
+
+.title{
+	margin: 50px;
+}
+
+body{
+    text-align: center;
+}
+
+/******************************
+*
+* header-top
+*
+******************************/
+
+.clearfix:before,
+.clearfix:after {
+  content :"";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+.l-left{
+  float: left;
+}
+.l-right{
+  float: right;
+}
+.one-line{
+  vertical-align: middle;
+}
+
+.header-top{
+  background: rgba(0,47,77,0);
+  height: 30px;
+  padding: 0 20px;
+  position : fixed;
+  top : 0;
+  width: 100%;
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.username{
+  font-size: 0.9em;
+  font-family: 'Nanum Gothic', sans-serif;
+  text-decoration: underline;
+  padding: 0 0 10px;
+  color: #353848; 
+}
+
+/******************************
+*
+* button
+*
+******************************/
+
+.btn-confirm {
+    width:200px;
+    background-color: #f8585b;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+
+.btn-confirm:hover {
+  box-shadow: #fc9a9c 0 80px 0px 2px inset;
+  color: white;
+}
+
+.btn-enabled {
+  width:200px;
+  background-color: lightgray;
+  border: none;
+  color: #6f6f6f;
+  padding: 15px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+/******************************
+*
+* section : 1 분 묵상
+*
+******************************/
+
+  .video {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    padding: 30px;
     box-sizing: border-box;
     box-shadow: 0px 8px 33px #999;
   }
@@ -154,8 +431,13 @@ body{
 {   
     color: LightGray;
     font-size: 1.2em;
-    padding: 0px 5px 5px;
+    padding: 0px 0px 5px;
+	margin: 0px 5px 10px;
     
+}
+
+.quiz{
+text-align : center;
 }
 
 .fp-controlArrow {
@@ -239,6 +521,10 @@ body{
   font-weight: bold;
 }
 
-.sub{
-  font-size: 0.8em;
+.sub, .sub2, .sub3, .sub4, .sub5{
+  font-size: 0.9em;
+  margin: 5px 30px;
+}
+.main{
+  font-family: 'Nanum Myeongjo', serif;
 }

@@ -32,8 +32,9 @@ class App extends Component{
   render(){
     return(
       <div>
-      <LoginHeader login={this.login} mode={this.state.mode}></LoginHeader>
-      <FullPage user={this.state.user} mode={this.state.mode} total_count={this.state.total_count} checked ={this.state.checked}></FullPage>
+            <LoginHeader login={this.login} mode={this.state.mode}></LoginHeader>
+            <FullPage user={this.state.user} mode={this.state.mode} total_count={this.state.total_count} checked ={this.state.checked}></FullPage>
+           
       </div>
     );
   }

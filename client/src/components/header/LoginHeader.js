@@ -153,7 +153,6 @@ class LoginHeader extends Component{
   }
 
   logout = () =>{
-    console.log('로그아웃');
     sessionStorage.clear();
     this.setState({
       mode : 'guest',

@@ -23,8 +23,8 @@ class SubjectBibleQuiz extends Component{
           <div className="txtbox">
             <div className="txtcontent quiz">
                     {
-                         _txt.split('\n').map( line => {
-                          return (<span>{line}<br/></span>);
+                         _txt.split('\n').map( (line, idx) => {
+                          return (<span id={idx} key ={idx}>{line}<br/></span>);
                         })
                       }
                 </div>
