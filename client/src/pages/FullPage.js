@@ -125,6 +125,7 @@ class FullPage extends Component{
           licenseKey = {'OPEN-SOURCE-GPLV3-LICENSE'}
           scrollingSpeed = {1000}
           sectionsColor={["#282c34", "#9baec8","#353848","#ff5f45", "#0798ec","#282c34"]}
+		//sectionsColor={["#eeeeee", "#00adb5","#393e46","#ff5f45", "#222831","#eeeeee"]}
  //         navigation = {true}
           navigationPosition= 'right'
           // navigationTooltips={['시작','1','2','3','4','확인']}
