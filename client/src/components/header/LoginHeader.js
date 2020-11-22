@@ -172,8 +172,8 @@ class LoginHeader extends Component{
 
   const KaKaoBtn = styled(KaKaoLogin)`
       padding : 0;
-      width : 190px;
-      height: 44px;
+      width : 95px;
+      height: 22px;
       line-height : 44px;
       color : #783c00;
       background-color : #FFEB00;
