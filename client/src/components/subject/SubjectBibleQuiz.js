@@ -20,7 +20,7 @@ class SubjectBibleQuiz extends Component{
                   <h1>{this.props.title}</h1>
                   {this.props.sub}<br/>
           </header>
-          <div className="txtbox">
+          
             <div className="txtcontent quiz">
                     {
                          _txt.split('\n').map( (line, idx) => {
@@ -28,7 +28,7 @@ class SubjectBibleQuiz extends Component{
                         })
                       }
                 </div>
-            </div>
+           
         </div>
        
       );
