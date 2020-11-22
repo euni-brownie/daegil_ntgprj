@@ -13,12 +13,12 @@ class ProfileImg extends Component{
   setImage=()=>{
     const url = this.props.href;
     if(url==='undefined') return defaultImg;
-    else if(url==='rabbit') return rabbitImg;
-    else if(url==='rakun') return rakunImg;
-    else if(url==='bird') return birdImg;
-    else if(url==='beluga') return belugaImg;
-    else if(url==='chick') return chickImg;
-    else if(url==='turtle') return turtleImg;
+    // else if(url==='rabbit') return rabbitImg;
+    // else if(url==='rakun') return rakunImg;
+    // else if(url==='bird') return birdImg;
+    // else if(url==='beluga') return belugaImg;
+    // else if(url==='chick') return chickImg;
+    // else if(url==='turtle') return turtleImg;
     else return this.props.href;
   }
 

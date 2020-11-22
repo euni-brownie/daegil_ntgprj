@@ -87,7 +87,7 @@ class FullPage extends Component{
     var today = moment()
     let diffDay = today.diff('2020-11-09','days')+1
     let printDay = diffDay;
-    if(diffDay%7==0) printDay = diffDay - Math.floor(diffDay/7) -1
+    if(diffDay%7==0) printDay = diffDay - Math.floor(diffDay/7)
     else  printDay = diffDay - Math.floor(diffDay/7)  
     return printDay
   }
@@ -152,7 +152,8 @@ class FullPage extends Component{
     
               <div className="section">
                 <SubjectYoutube 
-                  title ="1분 말씀묵상" 
+                  title ="1분 말씀묵상"
+                  sub="(오전 11시쯤 업데이트 됩니다 - 주일 제외)" 
                   /> 
               </div>
     
@@ -183,7 +184,7 @@ class FullPage extends Component{
                 <div className="section">
                   <SubjectMain
                     title ="4랑실천 happy box" 
-                    sub="기한 20/12/11 까지 사랑의 선물박스를 함께 준비해볼까요?" />
+                    sub="12월 11일까지 사랑의 선물박스를 함께 준비해볼까요?" />
                   <Button classname={this.buttonState()} title={this.printCompleteButton()} 
                         onClick={()=>{
                           this.completeButtonAction();

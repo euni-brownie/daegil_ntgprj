@@ -33,7 +33,7 @@ class SubjectYoutube extends Component{
         <div>
           <header>
                   <h1>{this.props.title}</h1>
-                 <br/>
+                 <p className="sub">{this.props.sub}</p>
           </header>
           <div className="video">
             <div className="video-container">
