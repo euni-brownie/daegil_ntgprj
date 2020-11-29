@@ -144,7 +144,7 @@ class LoginHeader extends Component{
                           width: "60px",
                           height:"30px",
                           backgroundImage: `url(${background})`,
-                          boxShadow : "2px 2px 10px 1px #666666"
+                          boxShadow : "1px 1px 7px 0.4px #fee500"
                         }}
                       > </KaKaoBtn>
             </h1>
