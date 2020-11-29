@@ -9,7 +9,7 @@ class SubjectBible extends Component{
       var today = moment()
       let diffDay = today.diff('2020-11-09','days')+1
       let printDay = diffDay;
-      if(diffDay%7===0) printDay = diffDay - Math.floor(diffDay/7) -1
+      if(diffDay%7===0) printDay = diffDay - Math.floor(diffDay/7)
       else  printDay = diffDay - Math.floor(diffDay/7)  
     
       let data = {bible_array};

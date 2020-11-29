@@ -184,7 +184,8 @@ class FullPage extends Component{
                 <div className="section">
                   <SubjectMain
                     title ="4랑실천 happy box" 
-                    sub="12월 11일까지 사랑의 선물박스를 함께 준비해볼까요?" />
+                    sub="12월 12일까지 사랑의 선물박스를 함께 준비해볼까요?"
+                    sub3="(5만원이내 생필품 + 축복카드를 전달해요)" />
                   <Button classname={this.buttonState()} title={this.printCompleteButton()} 
                         onClick={()=>{
                           this.completeButtonAction();
