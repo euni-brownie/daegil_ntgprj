@@ -106,6 +106,31 @@ router.post('/get/totalCheckedCount', (req,res)=>{
     });     
  
 });
+
+router.post('/get/rankById', (req,res)=>{
+    // eslint-disable-next-line no-unused-expressions
+    let str = `SELECT R.rank FROM
+                (SELECT A.*, 
+                        CASE
+                        WHEN @prev_value = COUNT THEN @ROWNUM
+                        WHEN @prev_value := COUNT THEN @ROWNUM := @ROWNUM + 1 
+                        END AS rank FROM
+                        (SELECT user_id, COUNT(checked_date) AS count FROM USER_DATA GROUP BY user_id ORDER BY COUNT desc) A, 
+                        (SELECT @ROWNUM := 0, @prev_value := NULL ) B) R
+                        WHERE R.user_id LIKE ${req.body.user_id};`
+                        
+    db.query(str, (err,data)=>{
+        if(!err){
+            console.log(err, data);
+            res.send(data);
+        }else{
+            console.log(`query error : ${err}`);
+            res.send(err);
+        }
+    });
+
+});
+
 /* insert */
 
 router.post('/insert/user', (req,res)=>{

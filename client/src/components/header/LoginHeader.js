@@ -168,7 +168,6 @@ class LoginHeader extends Component{
   logout = async() =>{
     
     // sessionStorage.clear();
-        console.log('logout!');
 
     this.setState({
       mode : 'guest',
